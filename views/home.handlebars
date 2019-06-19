@@ -16,23 +16,26 @@
             </div>
           </div>
             <legend class="text-success user-result"></legend>
+            
 
           <!-- <div class="suggestion-wrap center">
             <span>Sale</span>
           </div> -->
         </fieldset>
       </form>
+      {{!-- <a class="btn btnn" data-clipboard-text="oooo">
+    <i class="far fa-clipboard"></i>
+</a> --}}
     </div>
     <script src="js/extention/choices.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
     <script>
-     
-
-
-      
-
-    </script>
-    <script>
+      var clip = new ClipboardJS('.btnn')
+      clip.on('success', function(e) {
+            alert("copied to clipboard")
+      });
       $('.shortenform').on('submit',function(e){
         e.preventDefault();
          $.ajax({
@@ -45,7 +48,7 @@
           },
             success: function( result ) {
                 console.log(result);
-                $('.user-result').html("Url shortened: <a target='blank' href='/"+result.shortUrl+"'>"+result.shortUrl+"</a>")
+                $('.user-result').html("Url shortened: <a target='blank' href='/"+result.shortUrl+"'>"+result.shortUrl+"</a>"+"<a class='btn btn-danger btnn' data-clipboard-text='https://urlshit.herokuapp.com/"+result.shortUrl+"'><i class='far fa-clipboard'></i></a>")
                 $('.btn-search').html("<i class='fas fa-cut'></i>")
             },
             error: function(err){
