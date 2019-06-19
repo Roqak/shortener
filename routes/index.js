@@ -55,6 +55,21 @@ Router.get('/s/:userString/:url',(req,res)=>{
     // res.send(`${req.params.userString} ${req.params.url}`)
 })
 
+Router.post('/s',(req,res)=>{
+    const newUrl = new url({
+        url : req.body.url,
+        shortUrl: randomString({length: 6}).toLowerCase()
+    })
+    // res.send(randomString({length: 6}).toLowerCase())
+    newUrl.save()
+    .then(result=>{
+        res.send(result)
+    })
+    .catch(err=>{
+        res.send(err)
+    })
+})
+
 
 
 
