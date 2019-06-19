@@ -3,6 +3,7 @@ const home = require("./routes/index")
 const app = express();
 const mongoose = require('mongoose')
 require('dotenv').config()
+const port = process.env.port || 6500
 mongoose.connect(process.env.ss,{ useNewUrlParser: true })
 .then((result)=>{
     console.log("connected")
@@ -15,6 +16,6 @@ mongoose.connect(process.env.ss,{ useNewUrlParser: true })
 app.use('/',home)
 
 
-app.listen(process.env.PORT,()=>{
-    console.log("listening on port "+ process.env.PORT)
+app.listen(port,()=>{
+    console.log("listening on port "+ port)
 })
