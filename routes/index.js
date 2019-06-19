@@ -4,7 +4,7 @@ const randomString = require('random-string');
 const url = require('../Model/Url');
 // const x = randomString({length: 5});
 Router.get('/',(req,res)=>{
-    res.send("Hello world")
+    res.render("home")
 })
 
 Router.get('/:url',(req,res)=>{
