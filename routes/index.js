@@ -107,6 +107,24 @@ Router.post('/s',(req,res)=>{
     })
 })
 
+Router.get('/delete/:id',(req,res)=>{
+    url.findByIdAndDelete(req.params.id)
+    .then(result=>{
+        res.json(result)
+    })
+    .catch(error=>{
+        res.json(error)
+    })
+})
+Router.get('/find/all',(req,res)=>{
+    url.find()
+    .then(result=>{
+        res.json(result)
+    })
+    .catch(error=>{
+        res.json(error)
+    })
+})
 
 
 
