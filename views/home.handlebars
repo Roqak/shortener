@@ -5,33 +5,19 @@
           <div class="inner-form">
             <div class="input-field">
               <input name="url" class="form-control inp" id="choices-text-preset-values" type="text" placeholder="Type to search..." required/>
-              <button class="btn-search" type="submit" value="shorten" type="button">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg> -->
+              <button class="btn-search" type="submit" value="shorten" type="button" role="button">
                 <i class="fas fa-cut"></i>
-
-
               </button>
             </div>
           </div>
             <legend class="text-success user-result"></legend>
-            
-
-          <!-- <div class="suggestion-wrap center">
-            <span>Sale</span>
-          </div> -->
         </fieldset>
       </form>
-      {{!-- <a class="btn btnn" data-clipboard-text="oooo">
-    <i class="far fa-clipboard"></i>
-</a> --}}
-    </div>
-    <script src="js/extention/choices.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
-
-    <script>
+</div>
+<script type="text/javascript" src="js/extention/choices.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+<script type="text/javascript">
       var clip = new ClipboardJS('.btnn')
       clip.on('success', function(e) {
             alert("copied to clipboard")
@@ -47,17 +33,17 @@
               $('.btn-search').html("<i class='fa fa-spinner fa-spin fa-3x fa-fw'></i>")
           },
             success: function( result ) {
-                console.log(result);
+                // console.log(result);
                 $('.user-result').html("Url shortened: <a target='blank' href='/"+result.shortUrl+"'>"+result.shortUrl+"</a>"+"<a class='btn btn-danger btnn' data-clipboard-text='https://urlshit.herokuapp.com/"+result.shortUrl+"'><i class='far fa-clipboard'></i></a>")
                 $('.btn-search').html("<i class='fas fa-cut'></i>")
                 $('.inp').clear()
             },
             error: function(err){
-                console.log(err);
+                // console.log(err);
                 $('.user-result').html("Error!!!")
                 $('.inp').clear()
             }
       })
 
       })
-    </script>
+</script>
