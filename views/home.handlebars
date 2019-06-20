@@ -50,9 +50,12 @@
                 console.log(result);
                 $('.user-result').html("Url shortened: <a target='blank' href='/"+result.shortUrl+"'>"+result.shortUrl+"</a>"+"<a class='btn btn-danger btnn' data-clipboard-text='https://urlshit.herokuapp.com/"+result.shortUrl+"'><i class='far fa-clipboard'></i></a>")
                 $('.btn-search').html("<i class='fas fa-cut'></i>")
+                $('.inp').clear()
             },
             error: function(err){
                 console.log(err);
+                $('.user-result').html("Error!!!")
+                $('.inp').clear()
             }
       })
 
